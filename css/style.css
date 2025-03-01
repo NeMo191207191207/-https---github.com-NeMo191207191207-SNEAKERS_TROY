@@ -264,8 +264,13 @@ h1{
   color: #000;
   margin-top: 10px;
 }
-.home_card-info button{
+.container-button{
+  display: flex;
+  justify-content: end;
   margin-top: 20px;
+}
+.home_card-text{
+
 }
 /*  */
 
