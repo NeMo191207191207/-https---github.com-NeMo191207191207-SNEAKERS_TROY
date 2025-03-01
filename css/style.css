@@ -1,0 +1,333 @@
+/* @font-face {
+  font-family: 'Khula';
+  src: url('/fonts/Khula-Bold.ttf') format('ttf');
+  src: url('/fonts/Khula-Bold.woff') format('woff');
+  src: url('/fonts/Khula-Regular.ttf') format('ttf');
+  src: url('/fonts/Khula-Regular.woff') format('woff');
+  src: url('/fonts/Khula-ExtraBold.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+} */
+/* @font-face {
+  font-family: 'Montserrat';
+  src: url('DMSans-Bold.woff2') format('woff2');
+  src: url('DMSans-Bold.woff') format('woff');
+  src: url('DMSans-Bold.ttf') format('tff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+} */
+body {
+  overflow-x: hidden;
+  height: 100vh;
+  margin: 0;
+  color: #fff;
+  background-color: #03080B;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+
+}
+::selection{
+  background-color: #62ad25;
+  color: #fff;
+  font-style: italic;
+}
+/* Для Firefox */
+::-moz-selection {
+  background-color: #ffcc00;
+  color: #000;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  color: #fff;
+  text-decoration: none;
+}
+a:hover:not(.logo, .active){
+  color: #8C7F6D;
+}
+
+/* Созданные */
+.button-baze{
+  width: 212px;
+  height: 55px;
+  color: #fff;
+  background-color: transparent;
+  border:  solid #fff;
+  border-radius: 30px;
+}
+.button-baze:hover{
+  background-color: #343434;
+
+  transition: 0.5s;
+}
+
+
+/* From Uiverse.io by Gautammsharma */ 
+/* From Uiverse.io by cssbuttons-io */ 
+.button_buy {
+  position: relative;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.4s;
+  border: none;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}
+
+.button_buy:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button_buy:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button_buy::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.button_buy::after {
+  background-color: #000000;
+}
+
+.button_buy:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+
+
+
+.active{
+  color: #62ad25;
+}
+
+.logo:not(.footer_logo){
+  transition: 0.3s;
+}
+.logo:hover:not(.footer_logo){
+  font-size: 35px;
+}
+/*  */
+.container{
+  padding: 0 45px;
+}
+
+/* HEADER */
+.header{
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to right, rgb(0, 0, 0) 50%, rgb(255, 255, 255) 50%);
+}
+
+
+.logo{
+  display: inline;
+  font-size: 30px;
+  font-weight: 700;
+}
+.logo:not(.footer_logo){
+  color: #000;
+}
+
+
+.header-list{
+  display: flex;
+  column-gap: 70px;
+  text-transform: uppercase;
+  margin-right: 50px;
+}
+
+.cart{
+  font-size: 20px;
+  color: #000;
+}
+.cart::before{
+  content: "";
+
+  width: 30px;
+  height: 30px;
+  background-image: url('/icons/shopCartsvg.svg');
+  background-size: cover;
+  transform: translateY(-6px);
+  margin-right: 7px;
+}
+
+/* MAIN */
+/* Home */
+.home-container{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+.home{
+  display: flex;
+}
+.home-info{
+  position: relative;
+  top: -50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 25px;
+  flex: 1;
+  
+}
+h1{
+  font-family: "Kanit", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 60px;
+}
+
+.home-info p{
+  display: block;
+  text-align: center;
+  padding: 0 17%;
+}
+.home_shop-now{
+  
+}
+
+.home-image{
+  flex: 1;
+  text-align: right;
+  
+}
+
+/* preview */
+.preview{
+  margin-bottom: 30px;
+}
+/*  */
+
+
+/* Catalog */
+.catalog {
+  margin: 30px;
+}
+.home_catalog-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.home_card-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 20px;
+  width: calc(30% - 40px);
+}
+.home_card-item img{
+  position: relative;
+  left: 15%;
+  width: 70%;
+}
+.home_card-info{
+
+}
+.home_card-info p{
+  color: #000;
+  margin-top: 10px;
+}
+.home_card-info button{
+  margin-top: 20px;
+}
+/*  */
+
+/* Footer */
+.footer {
+  height: 300px;
+  border: 1px solid #fff;
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+}
+.footer_columns {
+  display: flex;
+  justify-content: space-between;
+  padding: 84px 20px 0 ;
+}
+.footer_logo {
+  position: relative;
+  top: -10px;
+  font-size: 30px;
+}
+.columns_information {
+  display: flex;
+}
+.columns_product {
+}
+.columns_feedback {
+}
+.columns_social-networks {
+  text-align: end;
+
+}
+.footer_social{
+  display: flex;
+  justify-content: end;
+  margin-top: 33px;
+
+}
+
+
+.footer_text-end{
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+
+
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer_text-end h3{
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.preview {
+  width: 100%;
+  box-sizing: border-box;
+}
+.brands {
+}
+.brands-card {
+  width: 302px;
+  height: 254px;
+  background-color: #fff;
+}
+.brands-card-item {
+}
