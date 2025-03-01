@@ -1,23 +1,4 @@
-/* @font-face {
-  font-family: 'Khula';
-  src: url('/fonts/Khula-Bold.ttf') format('ttf');
-  src: url('/fonts/Khula-Bold.woff') format('woff');
-  src: url('/fonts/Khula-Regular.ttf') format('ttf');
-  src: url('/fonts/Khula-Regular.woff') format('woff');
-  src: url('/fonts/Khula-ExtraBold.ttf') format('ttf');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-} */
-/* @font-face {
-  font-family: 'Montserrat';
-  src: url('DMSans-Bold.woff2') format('woff2');
-  src: url('DMSans-Bold.woff') format('woff');
-  src: url('DMSans-Bold.ttf') format('tff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-} */
+/* Основные стили */
 body {
   overflow-x: hidden;
   height: 100vh;
@@ -29,49 +10,50 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
-
 }
-::selection{
+
+::selection {
   background-color: #62ad25;
   color: #fff;
   font-style: italic;
 }
+
 /* Для Firefox */
 ::-moz-selection {
   background-color: #ffcc00;
   color: #000;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-a{
+
+a {
   color: #fff;
   text-decoration: none;
 }
-a:hover:not(.logo, .active){
+
+a:hover:not(.logo, .active) {
   color: #8C7F6D;
 }
 
-/* Созданные */
-.button-baze{
+/* Кнопки */
+.button-baze {
   width: 212px;
   height: 55px;
   color: #fff;
   background-color: transparent;
-  border:  solid #fff;
+  border: solid #fff;
   border-radius: 30px;
 }
-.button-baze:hover{
-  background-color: #343434;
 
+.button-baze:hover {
+  background-color: #343434;
   transition: 0.5s;
 }
 
-
-/* From Uiverse.io by Gautammsharma */ 
-/* From Uiverse.io by cssbuttons-io */ 
 .button_buy {
   position: relative;
   font-size: 16px;
@@ -120,26 +102,24 @@ a:hover:not(.logo, .active){
   opacity: 0;
 }
 
-
-
-
-.active{
+.active {
   color: #62ad25;
 }
 
-.logo:not(.footer_logo){
+.logo:not(.footer_logo) {
   transition: 0.3s;
 }
-.logo:hover:not(.footer_logo){
+
+.logo:hover:not(.footer_logo) {
   font-size: 35px;
 }
-/*  */
-.container{
+
+.container {
   padding: 0 45px;
 }
 
 /* HEADER */
-.header{
+.header {
   padding: 0 60px;
   display: flex;
   justify-content: space-between;
@@ -149,50 +129,64 @@ a:hover:not(.logo, .active){
   background: linear-gradient(to right, rgb(0, 0, 0) 50%, rgb(255, 255, 255) 50%);
 }
 
-
-.logo{
+.logo {
   display: inline;
   font-size: 30px;
   font-weight: 700;
 }
-.logo:not(.footer_logo){
+
+.logo:not(.footer_logo) {
   color: #000;
 }
 
-
-.header-list{
+.header-list {
   display: flex;
   column-gap: 70px;
   text-transform: uppercase;
   margin-right: 50px;
 }
 
-.cart{
+.cart {
   font-size: 20px;
   color: #000;
 }
-.cart::before{
-  content: "";
 
-  width: 30px;
-  height: 30px;
+.cart::before {
+  content: "";
+  width: 35px;
+  height: 35px;
   background-image: url('/icons/shopCartsvg.svg');
   background-size: cover;
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   margin-right: 7px;
 }
 
+/* Гамбургер-меню */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  margin: 4px 0;
+}
+
 /* MAIN */
-/* Home */
-.home-container{
+.home-container {
   display: flex;
   width: 100%;
   box-sizing: border-box;
 }
-.home{
+
+.home {
   display: flex;
 }
-.home-info{
+
+.home-info {
   position: relative;
   top: -50px;
   display: flex;
@@ -201,47 +195,74 @@ a:hover:not(.logo, .active){
   flex-direction: column;
   row-gap: 25px;
   flex: 1;
-  
 }
-h1{
+
+h1 {
   font-family: "Kanit", serif;
   font-weight: 700;
   font-style: normal;
   font-size: 60px;
 }
 
-.home-info p{
+.home-info p {
   display: block;
   text-align: center;
   padding: 0 17%;
 }
-.home_shop-now{
-  
-}
 
-.home-image{
+.home-image {
   flex: 1;
   text-align: right;
-  
 }
 
-/* preview */
-.preview{
-  margin-bottom: 30px;
+/* PREVIEW */
+.preview {
+  margin: 20px 0 50px 0;
+  width: 100%;
+  box-sizing: border-box;
 }
-/*  */
 
+.brands {
+  display: flex;
+  margin-top: 20px;
+}
 
-/* Catalog */
+.brands-card {
+  border: 3px solid #fff;
+  width: 302px;
+  height: 254px;
+  background-color: #000;
+  padding: 10px;
+}
+
+.brands-card img {
+  margin-top: 20px;
+  position: relative;
+  left: 30%;
+  width: 100px;
+}
+
+.brands-card-info {
+  position: relative;
+  top: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+/* CATALOG */
 .catalog {
   margin: 30px;
 }
+
 .home_catalog-card {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
+
 .home_card-item {
   display: flex;
   flex-direction: column;
@@ -252,87 +273,205 @@ h1{
   padding: 20px;
   width: calc(30% - 40px);
 }
-.home_card-item img{
+
+.home_card-item img {
   position: relative;
   left: 15%;
   width: 70%;
 }
-.home_card-info{
 
+.home_card-info p {
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 5px;
 }
-.home_card-info p{
+
+.home_card-info span {
+  display: block;
   color: #000;
-  margin-top: 10px;
-}
-.container-button{
-  display: flex;
-  justify-content: end;
   margin-top: 20px;
 }
-.home_card-text{
 
+.container-button {
+  display: flex;
+  justify-content: end;
+  margin-top: 10px;
 }
-/*  */
 
-/* Footer */
+/* FOOTER */
 .footer {
   height: 300px;
   border: 1px solid #fff;
   border-bottom: none;
   border-radius: 20px 20px 0 0;
 }
+
 .footer_columns {
   display: flex;
   justify-content: space-between;
-  padding: 84px 20px 0 ;
+  padding: 84px 20px 0;
 }
+
 .footer_logo {
   position: relative;
   top: -10px;
   font-size: 30px;
 }
-.columns_information {
-  display: flex;
-}
-.columns_product {
-}
-.columns_feedback {
-}
-.columns_social-networks {
-  text-align: end;
 
+.columns_information,
+.columns_product,
+.columns_feedback,
+.columns_social-networks {
+  display: flex;
+  flex-direction: column;
 }
-.footer_social{
+
+.footer_social {
   display: flex;
   justify-content: end;
   margin-top: 33px;
-
 }
 
-
-.footer_text-end{
+.footer_text-end {
   margin-top: 25px;
   display: flex;
   justify-content: center;
-
-
   color: rgba(255, 255, 255, 0.5);
 }
-.footer_text-end h3{
+
+.footer_text-end h3 {
   font-size: 18px;
   font-weight: 300;
 }
 
-.preview {
-  width: 100%;
-  box-sizing: border-box;
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .home-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .home-info {
+      top: 0;
+      padding: 20px;
+  }
+
+  .home-image img {
+      width: 80%;
+      margin: 0 auto;
+  }
+
+  .brands {
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .brands-card {
+      width: 45%;
+      margin: 10px;
+  }
+
+  .home_catalog-card {
+      justify-content: center;
+  }
+
+  .home_card-item {
+      width: 45%;
+  }
 }
-.brands {
+
+@media (max-width: 768px) {
+  .header {
+      padding: 0 20px;
+      flex-direction: column;
+      height: auto;
+      padding: 20px 0;
+  }
+
+  .header-list {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+      margin-right: 0;
+  }
+
+  .header-list.active {
+      display: flex;
+  }
+
+  .menu-toggle {
+      display: flex;
+  }
+
+  .logo {
+      margin-bottom: 10px;
+  }
+
+  .home-info h1 {
+      font-size: 40px;
+  }
+
+  .home-info p {
+      padding: 0 10px;
+  }
+
+  .brands-card {
+      width: 100%;
+      margin: 10px 0;
+  }
+
+  .home_card-item {
+      width: 100%;
+  }
+
+  .footer_columns {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .columns_information,
+  .columns_product,
+  .columns_feedback,
+  .columns_social-networks {
+      margin-bottom: 20px;
+  }
+
+  .footer_social {
+      justify-content: center;
+  }
 }
-.brands-card {
-  width: 302px;
-  height: 254px;
-  background-color: #fff;
-}
-.brands-card-item {
+
+@media (max-width: 480px) {
+  .home-info h1 {
+      font-size: 30px;
+  }
+
+  .home-info p {
+      font-size: 14px;
+  }
+
+  .button-baze {
+      width: 180px;
+      height: 50px;
+      font-size: 14px;
+  }
+
+  .brands-card img {
+      left: 25%;
+  }
+
+  .home_card-item img {
+      left: 10%;
+      width: 80%;
+  }
+
+  .footer_logo {
+      font-size: 24px;
+  }
+
+  .footer_text-end h3 {
+      font-size: 14px;
+  }
 }
