@@ -145,17 +145,14 @@ a:hover:not(.logo, .active) {
   height: 90px;
   transition: 0.3s;
 }
-.header:hover {
+.header:hover:not(.burger) {
   background-color: #fff;
   box-sizing: border-box;
 }
 .header:hover .nav-link a {
   color: #000;
 }
-.header:hover .burger span{
-  background-color: #000;
-  
-}
+
 .nav-link {
   display: flex;
   justify-content: space-between;
@@ -169,37 +166,67 @@ a:hover:not(.logo, .active) {
   color: #fff;
 }
 
-/* Стили для бургер-меню */
+/* Анимация Burder menu */
+/* From Uiverse.io by Jason21403019 */ 
 .burger {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  z-index: 1000; /* Чтобы иконка была поверх меню */
+  justify-content: center;
+  align-items: center;
 }
 
-.burger span {
-  width: 25px;
-  height: 3px;
-  background-color: #fff;
-  margin: 4px 0;
-  transition: 0.4s;
+.burger {
+  cursor: pointer;
+  padding-bottom: 3px;
+  position: relative;
 }
+
+.burger input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+}
+
+.bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  margin: 6px auto;
+  border-radius: 40px;
+  transition: all 0.3s cubic-bezier(0.37, -1.11, 0.79, 2.02);
+  background-color: #000000;
+}
+
+.burger input:checked ~ .bar:nth-child(2) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+.burger input:checked ~ .bar:nth-child(3) {
+  opacity: 0;
+}
+
+.burger input:checked ~ .bar:nth-child(4) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/*  */
 
 /* Стили для списка ссылок */
 .header-list {
   margin: 0;
-  padding: 0;
+  padding: 10px 20px;
   margin-top: 90px;
+  font-weight: 700;
   position: fixed;
   top: 0;
   left: -100%; /* Меню скрыто за левой границей */
   width: 250px; /* Ширина выезжающего меню */
-  height: 40vh;
-  background-color: #333;
+  height: 25vh;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   transition: left 0.4s ease-out;
   z-index: 999; /* Меню должно быть под иконкой бургера */
 }
@@ -209,14 +236,18 @@ a:hover:not(.logo, .active) {
 }
 
 .header-list li {
-  margin: 15px 0;
+  margin: 5px 0;
 }
 
 .header-list li a {
-  color: #fff;
+  color: #000;
   text-decoration: none;
   font-size: 18px;
 }
+.header-list li a:hover{
+  color: #ffcc00;
+}
+
 
 /* Затемнение фона при открытом меню */
 .overlay {
@@ -234,7 +265,13 @@ a:hover:not(.logo, .active) {
   display: block;
 }
 
-
+@media screen and (max-width:1000px) {
+  .nav-link{
+    flex-direction: column;
+    align-items: normal;
+    row-gap: 10px;
+  }
+}
 
 /* Header_home */
 .header_home {
@@ -402,7 +439,7 @@ a:hover:not(.logo, .active) {
 }
 @keyframes change-color{
   0% {fill:#000}
-  100% {fill: #ffcc00;}
+  100% {fill: #ff0000;}
 }
 .footer_columns a{
   color: #000;
