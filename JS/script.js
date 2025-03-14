@@ -7,6 +7,12 @@ const header = document.getElementById('header');
 const cart = document.getElementById('cart');
 const list = document.getElementById('scrollContainer');
 const spans = document.querySelectorAll('.burger span'); // Получаем все span внутри бургера
+const logo = document.getElementById('top');
+const card = document.querySelectorAll(".home_catalog-card .home_card-item");
+
+const scrollContainer = document.getElementById('scrollContainer');
+const modal = document.getElementById('modal');
+const closeModal = document.querySelector('.close');
 
 overlay.classList.add('overlay');
 document.body.appendChild(overlay);
@@ -18,12 +24,13 @@ burger.addEventListener('click', () => {
 });
 
 
-
 // Изменение цвета фона при наведении на header
 header.addEventListener('mouseenter', () => {
   header.style.backgroundColor = "#fff";
   cart.style.color = "#000";
   spans.forEach(span => span.style.backgroundColor = "#000"); // Меняем цвет всех span внутри бургера
+  logo.style.color = "#000";
+
 });
 
 header.addEventListener('mouseleave', () => {
@@ -31,6 +38,8 @@ header.addEventListener('mouseleave', () => {
     header.style.backgroundColor = "transparent";
     cart.style.color = "#fff";
     spans.forEach(span => span.style.backgroundColor = "#fff"); // Возвращаем цвет span
+    logo.style.color = "#fff";
+
   }
 });
 
@@ -40,10 +49,12 @@ window.addEventListener('scroll', () => {
     header.style.backgroundColor = "#fff";
     cart.style.color = "#000";
     spans.forEach(span => span.style.backgroundColor = "#000"); // Меняем цвет span при скролле
+    logo.style.color = "#000"; 
   } else {
     header.style.backgroundColor = "transparent";
     cart.style.color = "#fff";
     spans.forEach(span => span.style.backgroundColor = "#fff"); // Возвращаем цвет span
+    logo.style.color = "#fff";
   }
 });
 
@@ -60,3 +71,22 @@ window.addEventListener('scroll', () => {
 //     </li>
 //   `;
 // }
+
+// Открытие модального окна при клике на любой элемент внутри ul
+scrollContainer.addEventListener('click', (event) => {
+  if (event.target.closest('.home_card-item')) {
+    modal.style.display = 'block';
+  }
+});
+
+// Закрытие модального окна при клике на крестик
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Закрытие модального окна при клике вне его области
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});

@@ -149,9 +149,7 @@ a:hover:not(.logo, .active) {
   background-color: #fff;
   box-sizing: border-box;
 }
-.header:hover .nav-link a {
-  color: #000;
-}
+
 
 .nav-link {
   display: flex;
@@ -215,8 +213,7 @@ a:hover:not(.logo, .active) {
 
 /* Стили для списка ссылок */
 .header-list {
-  margin: 0;
-  padding: 10px 20px;
+  margin: 0;  
   margin-top: 90px;
   font-weight: 700;
   position: fixed;
@@ -227,8 +224,8 @@ a:hover:not(.logo, .active) {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
+
   transition: left 0.4s ease-out;
-  z-index: 999; /* Меню должно быть под иконкой бургера */
 }
 
 .header-list.active {
@@ -236,7 +233,10 @@ a:hover:not(.logo, .active) {
 }
 
 .header-list li {
-  margin: 5px 0;
+  box-sizing: border-box;
+  flex-grow: 1;
+  margin: 0;
+  padding: 6px 40px;
 }
 
 .header-list li a {
@@ -244,8 +244,8 @@ a:hover:not(.logo, .active) {
   text-decoration: none;
   font-size: 18px;
 }
-.header-list li a:hover{
-  color: #ffcc00;
+.header-list li:hover{
+  background-color: #ffcc00;
 }
 
 
@@ -396,6 +396,44 @@ a:hover:not(.logo, .active) {
 .home_catalog-card::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+/* Стили для модального окна */
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Затемнение фона */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+}
+/*  */
 
 /* FOOTER */
 .footer {
