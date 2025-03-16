@@ -5,6 +5,7 @@ const headerList = document.getElementById('header-list');
 const overlay = document.createElement('div'); // Создаём элемент для затемнения фона
 const header = document.getElementById('header');
 const cart = document.getElementById('cart');
+const cart_bag = document.querySelectorAll('.cart_line svg'); // Используем <svg> вместо <img>
 const list = document.getElementById('scrollContainer');
 const spans = document.querySelectorAll('.burger span'); // Получаем все span внутри бургера
 const logo = document.getElementById('top');
@@ -23,14 +24,13 @@ burger.addEventListener('click', () => {
   spans.forEach(span => span.style.backgroundColor = "#ffcc00");
 });
 
-
 // Изменение цвета фона при наведении на header
 header.addEventListener('mouseenter', () => {
   header.style.backgroundColor = "#fff";
   cart.style.color = "#000";
   spans.forEach(span => span.style.backgroundColor = "#000"); // Меняем цвет всех span внутри бургера
   logo.style.color = "#000";
-
+  cart_bag.forEach(svg => svg.setAttribute('fill', '#000')); // Меняем цвет SVG
 });
 
 header.addEventListener('mouseleave', () => {
@@ -39,7 +39,7 @@ header.addEventListener('mouseleave', () => {
     cart.style.color = "#fff";
     spans.forEach(span => span.style.backgroundColor = "#fff"); // Возвращаем цвет span
     logo.style.color = "#fff";
-
+    cart_bag.forEach(svg => svg.setAttribute('fill', '#fff')); // Возвращаем цвет SVG
   }
 });
 
@@ -50,11 +50,13 @@ window.addEventListener('scroll', () => {
     cart.style.color = "#000";
     spans.forEach(span => span.style.backgroundColor = "#000"); // Меняем цвет span при скролле
     logo.style.color = "#000"; 
+    cart_bag.forEach(svg => svg.setAttribute('fill', '#000')); // Меняем цвет SVG при скролле
   } else {
     header.style.backgroundColor = "transparent";
     cart.style.color = "#fff";
     spans.forEach(span => span.style.backgroundColor = "#fff"); // Возвращаем цвет span
     logo.style.color = "#fff";
+    cart_bag.forEach(svg => svg.setAttribute('fill', '#fff')); // Возвращаем цвет SVG
   }
 });
 
