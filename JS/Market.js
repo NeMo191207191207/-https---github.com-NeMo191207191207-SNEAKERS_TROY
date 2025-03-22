@@ -24,41 +24,7 @@ burger.addEventListener('click', () => {
   spans.forEach(span => span.style.backgroundColor = "#ffcc00");
 });
 
-// Изменение цвета фона при наведении на header
-header.addEventListener('mouseenter', () => {
-  header.style.backgroundColor = "#fff";
-  cart.style.color = "#000";
-  spans.forEach(span => span.style.backgroundColor = "#000"); // Меняем цвет всех span внутри бургера
-  logo.style.color = "#000";
-  cart_bag.forEach(svg => svg.setAttribute('fill', '#000')); // Меняем цвет SVG
-});
 
-header.addEventListener('mouseleave', () => {
-  if (pageYOffset === 0) {
-    header.style.backgroundColor = "transparent";
-    cart.style.color = "#fff";
-    spans.forEach(span => span.style.backgroundColor = "#fff"); // Возвращаем цвет span
-    logo.style.color = "#fff";
-    cart_bag.forEach(svg => svg.setAttribute('fill', '#fff')); // Возвращаем цвет SVG
-  }
-});
-
-// Изменение цвета фона при скролле
-window.addEventListener('scroll', () => {
-  if (pageYOffset > 0) {
-    header.style.backgroundColor = "#fff";
-    cart.style.color = "#000";
-    spans.forEach(span => span.style.backgroundColor = "#000"); // Меняем цвет span при скролле
-    logo.style.color = "#000"; 
-    cart_bag.forEach(svg => svg.setAttribute('fill', '#000')); // Меняем цвет SVG при скролле
-  } else {
-    header.style.backgroundColor = "transparent";
-    cart.style.color = "#fff";
-    spans.forEach(span => span.style.backgroundColor = "#fff"); // Возвращаем цвет span
-    logo.style.color = "#fff";
-    cart_bag.forEach(svg => svg.setAttribute('fill', '#fff')); // Возвращаем цвет SVG
-  }
-});
 
 // Генерация списка карточек
 // for (const card of catalog) {
@@ -92,14 +58,3 @@ window.addEventListener('click', (event) => {
     modal.style.display = 'none';
   }
 });
-
-
-window.onload = function () {
-  // Ждем 3 секунды (имитация загрузки)
-  setTimeout(function () {
-      // Скрываем экран загрузки
-      document.getElementById('loading-screen').style.display = 'none';
-      // Показываем основное содержимое
-      document.getElementById('content').style.display = 'block';
-  }, 3000); // Время загрузки в миллисекундах
-};
