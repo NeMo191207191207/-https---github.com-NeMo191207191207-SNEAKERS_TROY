@@ -5,7 +5,7 @@ const headerList = document.getElementById('header-list');
 const overlay = document.createElement('div'); // Создаём элемент для затемнения фона
 const header = document.getElementById('header');
 const cart = document.getElementById('cart');
-const cart_bag = document.querySelectorAll('.cart_line svg'); // Используем <svg> вместо <img>
+const cart_bag = document.querySelector('.cart_line svg'); // Используем <svg> вместо <img>
 const list = document.getElementById('scrollContainer');
 const spans = document.querySelectorAll('.burger span'); // Получаем все span внутри бургера
 const logo = document.getElementById('top');
@@ -15,9 +15,11 @@ const scrollContainer = document.getElementById('scrollContainer');
 const modal = document.getElementById('modal');
 const closeModal = document.querySelector('.close');
 
+// Добавляем затемнение фона
 overlay.classList.add('overlay');
 document.body.appendChild(overlay);
 
+// Обработчик для бургер-меню
 burger.addEventListener('click', () => {
   headerList.classList.toggle('active');
   burger.classList.toggle('active');
@@ -30,7 +32,9 @@ header.addEventListener('mouseenter', () => {
   cart.style.color = "#000";
   spans.forEach(span => span.style.backgroundColor = "#000"); // Меняем цвет всех span внутри бургера
   logo.style.color = "#000";
-  cart_bag.forEach(svg => svg.setAttribute('fill', '#000')); // Меняем цвет SVG
+  if (cart_bag) {
+    cart_bag.setAttribute('fill', '#000'); // Меняем цвет SVG
+  }
 });
 
 header.addEventListener('mouseleave', () => {
@@ -39,7 +43,9 @@ header.addEventListener('mouseleave', () => {
     cart.style.color = "#fff";
     spans.forEach(span => span.style.backgroundColor = "#fff"); // Возвращаем цвет span
     logo.style.color = "#fff";
-    cart_bag.forEach(svg => svg.setAttribute('fill', '#fff')); // Возвращаем цвет SVG
+    if (cart_bag) {
+      cart_bag.setAttribute('fill', '#fff'); // Возвращаем цвет SVG
+    }
   }
 });
 
@@ -50,17 +56,21 @@ window.addEventListener('scroll', () => {
     cart.style.color = "#000";
     spans.forEach(span => span.style.backgroundColor = "#000"); // Меняем цвет span при скролле
     logo.style.color = "#000"; 
-    cart_bag.forEach(svg => svg.setAttribute('fill', '#000')); // Меняем цвет SVG при скролле
+    if (cart_bag) {
+      cart_bag.setAttribute('fill', '#000'); // Меняем цвет SVG при скролле
+    }
   } else {
     header.style.backgroundColor = "transparent";
     cart.style.color = "#fff";
     spans.forEach(span => span.style.backgroundColor = "#fff"); // Возвращаем цвет span
     logo.style.color = "#fff";
-    cart_bag.forEach(svg => svg.setAttribute('fill', '#fff')); // Возвращаем цвет SVG
+    if (cart_bag) {
+      cart_bag.setAttribute('fill', '#fff'); // Возвращаем цвет SVG
+    }
   }
 });
 
-// Генерация списка карточек
+// Генерация списка карточек (закомментировано, так как catalog не используется)
 // for (const card of catalog) {
 //   list.innerHTML += `
 //     <li class="home_card-item">
@@ -75,16 +85,20 @@ window.addEventListener('scroll', () => {
 // }
 
 // Открытие модального окна при клике на любой элемент внутри ul
-scrollContainer.addEventListener('click', (event) => {
-  if (event.target.closest('.home_card-item')) {
-    modal.style.display = 'block';
-  }
-});
+if (scrollContainer && modal) {
+  scrollContainer.addEventListener('click', (event) => {
+    if (event.target.closest('.home_card-item')) {
+      modal.style.display = 'block';
+    }
+  });
+}
 
 // Закрытие модального окна при клике на крестик
-closeModal.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
+if (closeModal && modal) {
+  closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+}
 
 // Закрытие модального окна при клике вне его области
 window.addEventListener('click', (event) => {
@@ -93,13 +107,34 @@ window.addEventListener('click', (event) => {
   }
 });
 
-
+// Имитация загрузки
 window.onload = function () {
-  // Ждем 3 секунды (имитация загрузки)
   setTimeout(function () {
-      // Скрываем экран загрузки
-      document.getElementById('loading-screen').style.display = 'none';
-      // Показываем основное содержимое
-      document.getElementById('content').style.display = 'block';
+    const loadingScreen = document.getElementById('loading-screen');
+    const content = document.getElementById('content');
+    if (loadingScreen && content) {
+      loadingScreen.style.display = 'none';
+      content.style.display = 'block';
+    }
   }, 3000); // Время загрузки в миллисекундах
 };
+
+// Скролл кнопки
+const buttonRight = document.getElementById('slideRight');
+const buttonLeft = document.getElementById('slideLeft');
+
+if (buttonRight && buttonLeft && scrollContainer) {
+  buttonRight.addEventListener('click', () => {
+    scrollContainer.scrollBy({
+      left: 700, // Прокручиваем на 700px вправо
+      behavior: 'smooth' // Плавный скролл
+    });
+  });
+
+  buttonLeft.addEventListener('click', () => {
+    scrollContainer.scrollBy({
+      left: -700, // Прокручиваем на 700px влево
+      behavior: 'smooth' // Плавный скролл
+    });
+  });
+}

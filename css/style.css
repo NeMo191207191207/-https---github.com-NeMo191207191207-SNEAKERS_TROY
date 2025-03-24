@@ -9,6 +9,7 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
+  /* white-space: nowrap; */
 }
 
 .visually-hidden {
@@ -56,68 +57,64 @@ a:hover:not(.logo, .active) {
   transition: 0.5s;
 }
 
-.button_buy {
+/* Scroll btn catalog */
+.btns-scroll{
+  display: flex;
+  justify-content: space-between;
+}
+.btn-scroll {
   position: relative;
-  font-size: 16px;
+  top: 300px;
+  margin-inline: 20px;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 1.5em 1.5em;
   display: inline-block;
   cursor: pointer;
-  border-radius: 50px;
-  transition: all 0.4s;
+  border-radius: 6em;
+  transition: all 0.2s;
   border: none;
-  font-weight: 600;
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(239, 239, 239);
 }
 
-.button_buy:hover {
+.btn-scroll.right::after {
+  content: '';
+
+  background: url("/icons/scroll.svg") no-repeat center center;
+  background-size: contain; /* Чтобы изображение масштабировалось */
+  width: 20px; /* Размер иконки */
+  height: 20px; /* Размер иконки */
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg); /* Центрирование и поворот */
+}
+
+.btn-scroll.left::after {
+  content: '';
+
+  background: url("/icons/scroll.svg") no-repeat center center;
+  background-size: contain; /* Чтобы изображение масштабировалось */
+  width: 20px; /* Размер иконки */
+  height: 20px; /* Размер иконки */
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Центрирование */
+}
+
+.btn-scroll:hover {
   transform: translateY(-3px);
-  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.button_buy:active {
+.btn-scroll:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.button_buy::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-}
-
-.button_buy::after {
-  background-color: #000;
-}
-
-.button_buy:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-
-.button_scroll{
-  border: none;
-  padding: 10px;
-  width: 40px;
-  background-color: #fff;
-  
-}
-.scroll-button.left {
-  left: 0;
-}
-
-.scroll-button.right {
-  right: 0;
-}
 
 /*  */
 
@@ -127,10 +124,9 @@ a:hover:not(.logo, .active) {
 
 /* HEADER */
 .header_back{
-  width: 100%;
   height: 845px;
   background-image: url("/image/Home_Bagraund_image2.png");
-
+  background-size: cover;
 }
 .header {
   position: fixed;
@@ -167,17 +163,6 @@ a:hover:not(.logo, .active) {
   position: relative;
   top: -5px;
   font-weight: 500;
-}
-.cart_line svg {
-  margin-right: 3px;
-  width: 40px;
-  height: 40px;
-  fill: #fff; /* Белый цвет по умолчанию */
-  transition: fill 0.3s; /* Плавное изменение цвета */
-}
-
-.cart_line svg:hover {
-  fill: #000; /* Чёрный цвет при наведении */
 }
 
 
@@ -300,18 +285,19 @@ a:hover:not(.logo, .active) {
 }
 
 .header_home h3{
-  font-size: 15px;
+  font-size: clamp(13px, 0.9vw, 15px);
   text-transform: uppercase;
   width: 700;
 }
-.header_home   {
+.header_home{
   text-transform: uppercase;
-  font-size: 25px;
+  font-size: clamp(16px, 1.49vw, 25px);
   width: 900;
   font-family: sans-serif;
+  color: #fff;
 }
 .home_shop-now{
-  font-size: 15px;
+  font-size: clamp(13px, 0.9vw, 15px);
   font-weight: 700;
   border-bottom: 1px solid #fff;
   transition: 0.2s;
@@ -368,10 +354,7 @@ a:hover:not(.logo, .active) {
   width: auto;
   transition: 0.2s;
 }
-.home_card-item-image:hover {
-  background-image: url("/image/ДРОП/3.jpg");
-  width: 100%;
-}
+
 
 .home_card-info {
   
@@ -455,12 +438,16 @@ a:hover:not(.logo, .active) {
 .footer {
   display: flex;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: clamp(15px, 0.95vw, 16px);
   padding: 60px 60px 80px 60px;
   color: #000;
   text-align: center;
 }
-
+.footer-left{
+  display: flex;
+  width: 57%;
+  justify-content: space-between;
+}
 .footer_columns{
   display: flex;
   gap: 5px;
@@ -474,7 +461,7 @@ a:hover:not(.logo, .active) {
 }
 .footer-link{
   font-weight: 700;
-  font-size: 20px;
+  font-size: clamp(18px, 1.2vw, 20px);
 }
 .social_networks{
   display: flex;
@@ -505,10 +492,46 @@ a:hover:not(.logo, .active) {
 
 /* Медиазапросы для адаптивности */
 
+@media screen and (max-width:1450px) {
+  .btn-scroll{
+    top: 270px;
+  }
+}
+@media screen and (max-width:1350px) {
+  .btn-scroll{
+    top: 250px;
+  }
+}
 @media screen and (max-width:1000px) {
-  .nav-link{
-    flex-direction: column;
-    align-items: normal;
-    row-gap: 10px;
+  .home_card-item{
+    max-width:calc(35% - 10px);
+  }
+  .footer{
+    display: contents;
+  }
+  .footer-left{
+    
+  }
+  .footer_columns-logo{
+    padding: 10px;
+  }
+}
+@media screen and (max-width:764px) {
+  .home_card-item{
+    max-width:calc(45% - 10px);
+  }
+  .btn-scroll{
+    top: 250px;
+  }
+  .footer_columns-logo{
+    padding: 5px;
+  }
+  .footer{
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto;
   }
 }
